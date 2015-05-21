@@ -1,0 +1,138 @@
+{
+  "Cache": {
+    "hasValue": {
+      "[\"anyUnknownId\"]": {
+        "false": {
+          "assume": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadojs\\test\\example2.js": {
+              "16": {}
+            }
+          },
+          "calledBy": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadojs\\test\\example2.js": {
+              "43": {
+                "func": "Object.get"
+              }
+            }
+          }
+        }
+      },
+      "[\"anyId\"]": {
+        "true": {
+          "assume": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadojs\\test\\example2.js": {
+              "17": {}
+            }
+          },
+          "calledBy": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadojs\\test\\example2.js": {
+              "43": {
+                "func": "Object.get"
+              }
+            }
+          }
+        }
+      }
+    },
+    "storeValue": {
+      "[\"anyUnknownId\",{\"id\":\"anyUnknownId\",\"value\":\"anyValue\"}]": {
+        "[object Object]": {
+          "assume": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadojs\\test\\example2.js": {
+              "18": {}
+            }
+          },
+          "calledBy": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadojs\\test\\example2.js": {
+              "47": {
+                "func": "Object.get"
+              }
+            }
+          }
+        }
+      }
+    },
+    "getCachedValue": {
+      "[\"anyId\"]": {
+        "{\"id\":\"anyId\",\"value\":\"anyValue\"}": {
+          "assume": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadojs\\test\\example2.js": {
+              "19": {}
+            }
+          },
+          "calledBy": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadojs\\test\\example2.js": {
+              "44": {
+                "func": "Object.get"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Db": {
+    "loadValue": {
+      "[\"anyUnknownId\"]": {
+        "{\"id\":\"anyUnknownId\",\"value\":\"anyValue\"}": {
+          "assume": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadojs\\test\\example2.js": {
+              "20": {}
+            }
+          },
+          "calledBy": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadojs\\test\\example2.js": {
+              "46": {
+                "func": "Object.get"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Repo": {
+    "get": {
+      "[\"anyId\"]": {
+        "{\"id\":\"anyId\",\"value\":\"anyValue\"}": {
+          "assume": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadojs\\test\\example2.js": {
+              "21": {}
+            }
+          }
+        }
+      },
+      "[\"anyUnknownId\"]": {
+        "{\"id\":\"anyUnknownId\",\"value\":\"anyValue\"}": {
+          "assume": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadojs\\test\\example2.js": {
+              "22": {}
+            }
+          }
+        }
+      }
+    },
+    "xxx": {
+      "[{\"id\":\"xxx\",\"val\":\"anyVal\"}]": {
+        "\"foo\"": {
+          "assume": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadojs\\test\\example2.js": {
+              "24": {}
+            }
+          }
+        }
+      }
+    },
+    "yyy": {
+      "[{\"id\":\"yyy\",\"val\":\"anyVal\"}]": {
+        "{\"id\":\"foo\",\"val\":\"val\"}": {
+          "assume": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadojs\\test\\example2.js": {
+              "25": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}

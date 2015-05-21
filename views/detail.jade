@@ -1,0 +1,67 @@
+doctype html
+html(lang="en")
+  head
+    title Chado Report PathView 
+    meta(name='viewport', content='width-device-width, initial-scale=1')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    script(type='text/javascript').
+      function openEditor(file) {
+        console.log(file);
+        console.log(encodeURI(file));
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", '/openeditor?file=' + file, true);
+        xmlHttp.send(null);
+      }
+
+  body(role='document') 
+    #navbar.nav.collapsenavbar-collapse
+      ul.nav.navbar-nav
+        li.active 
+          a(href="/") Overview
+        li
+          a(href="/detail/#{assumption.id}") Detail
+        li
+          a(href="/path/#{assumption.id}") Path
+    
+    #con.container
+      #temp.starter-template
+        h1 Detail 
+        h3 #{assumption.name}.#{assumption.func}(#{assumption.args}) => #{assumption.action}
+        p
+        h4 Assumed in following files
+        if assumptions.length == 0 
+          p
+            span(class="label label-warning") not assumed
+        else
+          each assumedBy in assumptions
+            p File: #{assumedBy.file} [Line: #{assumedBy.line}]   
+              button.btn.btn-xs(onclick="openEditor('#{encodeURI(assumedBy.file)}')") Open Editor
+            p Function: #{assumedBy.callermethod}
+            p
+        h4 Verified in following files
+        if verifications.length == 0
+          p
+            span(class="label label-warning") not verified
+        else
+          each verifiedBy in verifications 
+            p File: #{verifiedBy.file} [Line: #{verifiedBy.line}]   
+              button.btn.btn-xs(onclick="openEditor('#{encodeURI(verifiedBy.file)}')") Open Editor
+            p Function: #{verifiedBy.callermethod}
+            p
+        h4 Called from
+        if calledBys.length == 0
+          p
+            span(class="label label-warning") never used
+        else
+          each calledBy in calledBys
+            p File: #{calledBy.file} [Line: #{calledBy.line}]   
+              button.btn.btn-xs(onclick="openEditor('#{encodeURI(calledBy.file)}')") Open Editor
+            p Function: #{calledBy.callermethod}
+            p
+       
+ 
+
+
+
+
+

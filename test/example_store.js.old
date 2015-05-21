@@ -1,0 +1,54 @@
+var buster = require('buster'); 
+var assert = buster.assert;
+var refute = buster.refute;
+var chado = require('chado');
+var assume = chado.assume;
+var verify = chado.verify;
+var report = chado.report;
+var createDouble = chado.createDouble;
+buster.testCase("Store", {
+    "we should load value from cache" : function () {
+      var cache = createDouble('Cache');
+      assume(cache).canHandle('has').withArgs('myKey').andReturn(true);
+      assume(cache).canHandle('get').withArgs('myKey').andReturn('myValue');
+      var store = new Store(cache);
+      assert(verify("store").canHandle('get').withArgs('myKey').andReturn('myValue').on(store));
+    },
+    "if value is not cached, we should load it from repo" : function () {
+      var cache = createDouble('Cache');
+      var repo = createDouble('Repo');
+      assume(cache).canHandle('has').withArgs('myKey').andReturn(false);
+      assume(cache).canHandle('store').withArgs('myKey','myValue').andReturn();
+      assume(repo).canHandle('load').withArgs('myKey').andReturn('myValue');
+      var store = new Store(cache, repo);
+      assert(verify("store").canHandle('get').withArgs('myKey').andReturn('myValue').on(store));     
+    },
+    "if value is loaded from repo, it should be cached" : function () {
+      var cache = createDouble('Cache');
+      var repo = createDouble('Repo');
+      assume(cache).canHandle('has').withArgs('myKey').andReturn(false);
+      assume(cache).canHandle('store').withArgs('myKey','myValue').andReturn();
+      assume(repo).canHandle('load').withArgs('myKey').andReturn('myValue');
+      var store = new Store(cache, repo);
+      assert(verify("store").canHandle('get').withArgs('myKey').andReturn('myValue').on(store));     
+    }
+});
+
+function Store(cache, repo) {
+
+  function get(key) {
+    if (cache.has(key))
+    {
+      var val = cache.get(key);
+      return val;
+    }
+    var val = repo.load(key);
+    cache.store(key, val);
+    return val;
+  }
+
+  return {
+    get : get
+  }
+}
+

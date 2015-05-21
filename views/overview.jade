@@ -1,0 +1,45 @@
+doctype html
+html(lang="en")
+  head
+    title Chado Report Overview
+    meta(name='viewport', content='width-device-width, initial-scale=1')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+
+  body(role='document') 
+    #con.container
+      #temp.starter-template
+        h1 Overview
+
+        table(class="table table-bordered table-hover")
+          thead
+            tr
+              th Class
+              th Function
+              th Arguments
+              th Action
+              th
+          tbody
+            each val in reportArray 
+              tr(onclick="javascript:location.href='/path/#{val.id}/0'")
+                td
+                  a(href='/filter?lib=#{val.name}')= val.name
+                td= val.func
+                if val.args == 'undefined'
+                  td
+                else 
+                  td= val.args
+                td= val.action
+                td
+                  if val.assume && val.verify && val.calledBy
+                    span(class="label label-success") ok
+                  else if val.assume && val.verify
+                     span(class="label label-info") not used 
+                  else if val.assume && val.calledBy
+                     span(class="label label-danger") assumed
+                  else if val.verify && val.calledBy
+                     span(class="label label-warning") verified
+                  else if val.assume 
+                     span(class="label label-info") assumed but not used
+                  else if val.verify
+                     span(class="label label-info") verified but not used
+                   

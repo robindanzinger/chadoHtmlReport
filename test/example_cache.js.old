@@ -1,0 +1,48 @@
+var buster = require('buster'); 
+var assert = buster.assert;
+var refute = buster.refute;
+var chado = require('chado');
+var assume = chado.assume;
+var verify = chado.verify;
+var report = chado.report;
+var createDouble = chado.createDouble;
+buster.testCase("Cache", {
+    "verify has returns true" : function () {
+      var cache = new Cache();
+      cache.save('myKey', 'myValue');
+      assert(verify('Cache').canHandle('has').withArgs('myKey').andReturn(true).on(cache));
+    },
+    "verify get returns value" : function () {
+      var cache = new Cache();
+      cache.save('myKey', 'myValue');
+      assert(verify('Cache').canHandle('get').withArgs('myKey').andReturn('myValue').on(cache));
+    },
+  }
+);
+
+function Cache () {
+ 
+  var cache = {};
+
+  function save(key, value)
+  {
+    cache[key] = value;
+  }
+  
+  function has (key) {
+    return cache[key] != null;
+  }
+
+  function get(key) {
+    return cache[key];
+  }
+
+  return { 
+    has: has,
+    save: save,
+    get: get
+  }
+
+}
+
+

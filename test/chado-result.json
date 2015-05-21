@@ -1,0 +1,224 @@
+{
+  "Waiter": {
+    "order": {
+      "[\"steak\"]": {
+        "broiled steak": {
+          "assume": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadoReport\\test\\restaurant.js": {
+              "14": {
+                "Object.buster.testCase.We have a waiter who takes the order.the waiter returns the asked order": {}
+              }
+            }
+          },
+          "calledBy": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadoReport\\test\\restaurant.js": {
+              "15": {
+                "Object.buster.testCase.We have a waiter who takes the order.the waiter returns the asked order": {}
+              }
+            }
+          },
+          "verify": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadoReport\\test\\restaurant.js": {
+              "27": {
+                "Object.buster.testCase.Waiter.if waiter is asked for a steak, he asks the cook to broil a steak": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Cook": {
+    "broil": {
+      "[\"steak\"]": {
+        "broiled steak": {
+          "assume": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadoReport\\test\\restaurant.js": {
+              "26": {
+                "Object.buster.testCase.Waiter.if waiter is asked for a steak, he asks the cook to broil a steak": {}
+              }
+            }
+          },
+          "calledBy": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadoReport\\test\\restaurant.js": {
+              "96": {
+                "Object.order": {}
+              }
+            }
+          },
+          "verify": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadoReport\\test\\restaurant.js": {
+              "41": {
+                "Object.buster.testCase.Cook.The cook can broil a steak if he has the recipe and enough ingredients in the pantry": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Cookbook": {
+    "containsReceipt": {
+      "[\"steak\"]": {
+        "true": {
+          "assume": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadoReport\\test\\restaurant.js": {
+              "38": {
+                "Object.buster.testCase.Cook.The cook can broil a steak if he has the recipe and enough ingredients in the pantry": {}
+              }
+            }
+          },
+          "calledBy": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadoReport\\test\\restaurant.js": {
+              "106": {
+                "Object.broil": {}
+              }
+            }
+          },
+          "verify": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadoReport\\test\\restaurant.js": {
+              "56": {
+                "Object.buster.testCase.Cookbook.Can add new recipes": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "getIngredientsForReceipt": {
+      "[\"steak\"]": {
+        "[{\"name\":\"steak\",\"amount\":1},{\"name\":\"salt\",\"amount\":1},{\"name\":\"pepper\",\"amount\":1}]": {
+          "assume": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadoReport\\test\\restaurant.js": {
+              "39": {
+                "Object.buster.testCase.Cook.The cook can broil a steak if he has the recipe and enough ingredients in the pantry": {}
+              }
+            }
+          },
+          "calledBy": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadoReport\\test\\restaurant.js": {
+              "40": {
+                "Object.buster.testCase.Cook.The cook can broil a steak if he has the recipe and enough ingredients in the pantry": {}
+              },
+              "107": {
+                "Object.broil": {}
+              }
+            }
+          },
+          "verify": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadoReport\\test\\restaurant.js": {
+              "57": {
+                "Object.buster.testCase.Cookbook.Can add new recipes": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Pantry": {
+    "hasIngredients": {
+      "[[{\"name\":\"steak\",\"amount\":1},{\"name\":\"salt\",\"amount\":1},{\"name\":\"pepper\",\"amount\":1}]]": {
+        "true": {
+          "assume": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadoReport\\test\\restaurant.js": {
+              "40": {
+                "Object.buster.testCase.Cook.The cook can broil a steak if he has the recipe and enough ingredients in the pantry": {}
+              }
+            }
+          },
+          "calledBy": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadoReport\\test\\restaurant.js": {
+              "107": {
+                "Object.broil": {}
+              }
+            }
+          },
+          "verify": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadoReport\\test\\restaurant.js": {
+              "87": {
+                "Object.buster.testCase.Pantry.Can store ingredients": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Receipt": {
+    "getName": {
+      "undefined": {
+        "steak": {
+          "assume": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadoReport\\test\\restaurant.js": {
+              "52": {
+                "Object.buster.testCase.Cookbook.Can add new recipes": {}
+              }
+            }
+          },
+          "calledBy": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadoReport\\test\\restaurant.js": {
+              "122": {
+                "Object.addReceipt": {}
+              }
+            }
+          },
+          "verify": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadoReport\\test\\restaurant.js": {
+              "72": {
+                "Object.buster.testCase.Receipt.A Receipt contains all necessary informations like name, ingredients and the result": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "getResult": {
+      "undefined": {
+        "broiled steak": {
+          "assume": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadoReport\\test\\restaurant.js": {
+              "53": {
+                "Object.buster.testCase.Cookbook.Can add new recipes": {}
+              }
+            }
+          },
+          "verify": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadoReport\\test\\restaurant.js": {
+              "73": {
+                "Object.buster.testCase.Receipt.A Receipt contains all necessary informations like name, ingredients and the result": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "getIngredients": {
+      "undefined": {
+        "[{\"name\":\"steak\",\"amount\":1},{\"name\":\"salt\",\"amount\":1},{\"name\":\"pepper\",\"amount\":1}]": {
+          "assume": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadoReport\\test\\restaurant.js": {
+              "54": {
+                "Object.buster.testCase.Cookbook.Can add new recipes": {}
+              }
+            }
+          },
+          "calledBy": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadoReport\\test\\restaurant.js": {
+              "130": {
+                "Object.getIngredientsForReceipt": {}
+              }
+            }
+          },
+          "verify": {
+            "C:\\Users\\Robin\\Documents\\GitHub\\chadoReport\\test\\restaurant.js": {
+              "74": {
+                "Object.buster.testCase.Receipt.A Receipt contains all necessary informations like name, ingredients and the result": {}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

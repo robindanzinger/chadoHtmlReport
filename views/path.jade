@@ -1,0 +1,45 @@
+doctype html
+html(lang="en")
+  head
+    title Chado Report PathView 
+    meta(name='viewport', content='width-device-width, initial-scale=1')
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+
+  body(role='document') 
+    #navbar.nav.collapsenavbar-collapse
+      ul.nav.navbar-nav
+        li.active 
+          a(href="/") Overview
+        li
+          a(href="/detail/#{start.id}") Detail
+        li
+          a(href="/path/#{start.id}") Path
+    
+    #con.container
+      #temp.starter-template
+        h1 Path through the code
+        h3 #{start.name}.#{start.func}(#{start.args}) => #{start.action}
+        p
+        if alternativeIndex > 0 
+          a(href="/path/#{start.id}/#{parseInt(alternativeIndex)-1}") previous alternative path
+          p
+        if alternativeIndex < (numberOfAlternatives - 1)
+          a(href="/path/#{start.id}/#{1 + parseInt(alternativeIndex)}") next alternative path
+          p
+        table(class="table table-bordered table-hover")
+          thead
+            tr
+              th Class
+              th Function
+              th Arguments
+              th Action 
+          tbody
+            each val in pathArray 
+              tr(onclick="javascript:location.href='/path/#{val.id}'")
+                td= val.name
+                td= val.func
+                if val.args == 'undefined'
+                  td
+                else 
+                  td= val.args
+                td= val.action
